@@ -1,4 +1,4 @@
-package searchengine.model;
+package src.main.java.searchengine.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package searchengine.exceptions;
+package src.main.java.searchengine.exceptions;
 
 public class NotIndexedException extends Exception{
     public NotIndexedException(String message){

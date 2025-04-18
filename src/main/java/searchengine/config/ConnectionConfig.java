@@ -1,4 +1,5 @@
-package searchengine.config;
+package src.main.java.searchengine.config;
+
 
 import lombok.Getter;
 import lombok.Setter;

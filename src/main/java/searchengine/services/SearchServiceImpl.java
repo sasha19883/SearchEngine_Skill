@@ -1,4 +1,4 @@
-package searchengine.services;
+package src.main.java.searchengine.services;
 
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
@@ -216,7 +216,7 @@ public class SearchServiceImpl implements SearchService{
         for(String lemmaName : order){
             List<Integer> pagesOfCurrentLemma = new ArrayList<>();
 
-            List<Integer> lemmaIds = lemmaController.getLemmaIdsByLemmaName(lemmaName, sites_ids); // получили по имени и сайтам lemma_ids
+            List<Integer> lemmaIds = lemmaController.getLemmaIdsByLemmaName(lemmaName, sites_ids);
             System.out.println("Lemma " + lemmaName);
             for(Integer i : sites_ids){
                 System.out.println("site_id: " + i);////////////////////////////////
@@ -224,14 +224,13 @@ public class SearchServiceImpl implements SearchService{
             System.out.println(lemmaIds.size());
 
 
-            lemmaIdsForRank.addAll(lemmaIds); // Сюда собираем lemma_id's от всех лемм, чтобы потом считать их sumRank на страницах
-            Integer[] lemmaIdsArray = lemmaIds.toArray(new Integer[0]); // НЕ ОБРАЩАТЬ ВНИМАНИЯ НА ВЫДЕЛЕНИЕ
-
-            List<Integer> pageIds = indexController.getPageIdsByLemmaIds(lemmaIdsArray); // Нашли, на каких страницах есть эта лемма
+            lemmaIdsForRank.addAll(lemmaIds);
+            Integer[] lemmaIdsArray = lemmaIds.toArray(new Integer[0]);
+            List<Integer> pageIds = indexController.getPageIdsByLemmaIds(lemmaIdsArray);
 
             for(Integer p : pageIds){
                 pagesOfCurrentLemma.add(p);
-                if(flag == 0) reducingListOfPages.add(p); // Первый раз наполняем оба, пересечение будет полным
+                if(flag == 0) reducingListOfPages.add(p);
             }
             reducingListOfPages = intersectionList(reducingListOfPages, pagesOfCurrentLemma);
             flag++;

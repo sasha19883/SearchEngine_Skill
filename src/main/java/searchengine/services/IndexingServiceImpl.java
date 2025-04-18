@@ -1,4 +1,4 @@
-package searchengine.services;
+package src.main.java.searchengine.services;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;

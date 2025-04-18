@@ -1,8 +1,9 @@
-package searchengine.services;
+package src.main.java.searchengine.services;
+
 
 import searchengine.dto.indexing.IndexingResponse;
 
-public interface IndexingService {
+public interface IndexingService {   //
     IndexingResponse getIndexing();
     IndexingResponse stopIndexing();
     IndexingResponse getOnePageIndexing(String url);

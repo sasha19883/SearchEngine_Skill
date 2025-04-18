@@ -1,4 +1,5 @@
-package searchengine.services.param_files;
+package src.main.java.searchengine.services.param_file;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

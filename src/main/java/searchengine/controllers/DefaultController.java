@@ -1,4 +1,4 @@
-package searchengine.controllers;
+package src.main.java.searchengine.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

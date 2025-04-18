@@ -1,4 +1,4 @@
-package searchengine.controllers;
+package src.main.java.searchengine.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

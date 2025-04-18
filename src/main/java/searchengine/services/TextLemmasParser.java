@@ -1,4 +1,4 @@
-package searchengine.services;
+package src.main.java.searchengine.services;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
