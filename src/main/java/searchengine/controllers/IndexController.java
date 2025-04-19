@@ -1,52 +1,34 @@
 package src.main.java.searchengine.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import searchengine.model.IndexEntity;
-import searchengine.repositories.IndexRepository;
+import org.springframework.web.bind.annotation.*;
+import searchengine.dto.IndexResponse;
+import searchengine.dto.statistics.StatisticsResponse;
+import searchengine.services.IndexingServiceImpl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.io.IOException;
 
-@Controller
-@RequestMapping("/index")
-public class IndexController {
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api")
+public class IndexController
+{
+    private  final IndexingServiceImpl indexingService;
 
-    @Autowired
-    IndexRepository indexRepository;
-
-    //    @PostMapping("/")
-    public int addIndex(IndexEntity indexEntity){
-        indexRepository.save(indexEntity);
-        return indexEntity.getId();
+    @GetMapping("/startIndexing")
+    public ResponseEntity<IndexResponse> startIndexing() {
+        return ResponseEntity.ok(indexingService.startIndexing());
     }
 
-    @GetMapping("/{id}")
-    public List<Integer> getLemmaIdsByPageId(@PathVariable int id){
-        return indexRepository.lemmaIdsOfPage(id);
+    @GetMapping("/stopIndexing")
+    public ResponseEntity<IndexResponse> stopIndexing() {
+        return ResponseEntity.ok(indexingService.stopIndexing());
     }
 
-    @GetMapping("/{lemma}")
-    public List<Integer> getPageIdsByLemmaIds(Integer[] lemmaIdsArray){
-        List<Integer> list = new ArrayList<>();
-        Iterable<Integer> iterable = indexRepository.getPageIdsByLemmaIds(lemmaIdsArray);
-        iterable.forEach(list::add);
-        return list;
-    }
-
-    @GetMapping("/{page_id}")
-    public Float sumRankByPageId(@PathVariable int page_id, Integer[] array){
-        Optional<Float> optional = indexRepository.sumRankByPageId(page_id, array);
-        return optional.orElse(null);
-    }
-
-    @PostMapping("/saveAll")
-    public void saveAll(List<IndexEntity> list){
-        indexRepository.saveAll(list);
+    @PostMapping("/indexPage")
+    public ResponseEntity<IndexResponse> indexPage(@RequestParam(name = "url", defaultValue = "") String url) throws IOException {
+        return ResponseEntity.ok(indexingService.indexPage(url));
     }
 }
