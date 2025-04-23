@@ -1,7 +1,7 @@
-package src.main.searchengine.services;
+package main.searchengine.services;
 
 
-import searchengine.dto.statistics.StatisticsSearch;
+import main.searchengine.dto.StatisticsSearch;
 
 import java.util.List;
 

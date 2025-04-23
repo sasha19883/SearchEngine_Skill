@@ -1,4 +1,4 @@
-package searchengine.utils;
+package main.searchengine.utils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;

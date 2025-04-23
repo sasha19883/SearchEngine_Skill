@@ -1,18 +1,17 @@
-package src.main.searchengine.services.impl;
+package main.searchengine.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import searchengine.dto.statistics.DetailedStatisticsItem;
-import searchengine.dto.statistics.StatisticsData;
-import searchengine.dto.statistics.StatisticsResponse;
-import searchengine.dto.statistics.TotalStatistics;
-
-import searchengine.model.SitePage;
-import searchengine.model.Status;
-import searchengine.repository.LemmaRepository;
-import searchengine.repository.PageRepository;
-import searchengine.repository.SiteRepository;
-import searchengine.services.StatisticsService;
+import main.searchengine.dto.DetailedStatisticsItem;
+import main.searchengine.dto.StatisticsData;
+import main.searchengine.dto.StatisticsResponse;
+import main.searchengine.dto.TotalStatistics;
+import main.searchengine.model.SitePage;
+import main.searchengine.model.Status;
+import main.searchengine.repozitories.LemmaRepository;
+import main.searchengine.repozitories.PageRepository;
+import main.searchengine.repozitories.SiteRepository;
+import main.searchengine.services.StatisticsService;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,6 +23,12 @@ public class StatisticsServiceImpl implements StatisticsService {
     private final PageRepository pageRepository;
     private final LemmaRepository lemmaRepository;
     private final SiteRepository siteRepository;
+
+    public StatisticsServiceImpl(PageRepository pageRepository, LemmaRepository lemmaRepository, SiteRepository siteRepository) {
+        this.pageRepository = pageRepository;
+        this.lemmaRepository = lemmaRepository;
+        this.siteRepository = siteRepository;
+    }
 
     private TotalStatistics getTotal() {
         Long sites = siteRepository.count();

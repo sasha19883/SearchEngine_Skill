@@ -1,31 +1,25 @@
-package src.main.searchengine.repozitories;
+package main.searchengine.repozitories;
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import searchengine.model.LemmaEntity;
+import main.searchengine.model.Lemma;
+import main.searchengine.model.SitePage;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
-public interface LemmaRepository extends CrudRepository<LemmaEntity, Integer> {
+public interface LemmaRepository extends JpaRepository<Lemma, Long> {
+    long countBySitePageId(SitePage site);
 
-    @Query(value = "SELECT id FROM lemmas WHERE `site_id` = :site_id AND `lemma` = :lemma", nativeQuery = true)
-    Optional<Integer> getLemmaId(int site_id, String lemma);
+    List<Lemma> findBySitePageId(SitePage siteId);
+    @Query(value = "SELECT l.* FROM Lemma l WHERE l.lemma IN :lemmas AND l.site_id = :site", nativeQuery = true)
+    List<Lemma> findLemmaListBySite(@Param("lemmas") List<String> lemmaList,
+                                    @Param("site") SitePage site);
 
-    @Query(value = "SELECT id FROM lemmas WHERE `site_id` = :site_id", nativeQuery = true)
-    Iterable<Integer> getLemmaIdBySiteId(int site_id);
-
-    @Query(value = "SELECT COUNT(*) FROM lemmas WHERE `site_id` = :site_id", nativeQuery = true)
-    int countLemmaBySiteId(int site_id);
-
-    @Query(value = "SELECT SUM(`frequency`) FROM lemmas WHERE `lemma` = :lemma", nativeQuery = true)
-    Optional<Integer> getSumFrequency(String lemma);
-
-    @Query(value = "SELECT id FROM lemmas WHERE `lemma` = :lemmaName AND site_id IN :sites_ids", nativeQuery = true)
-    Iterable<Integer> getLemmaIdsByLemmaName(String lemmaName, Integer[] sites_ids);
-
-    @Query(value = "SELECT * FROM `lemmas` WHERE site_id = :site_id AND lemma IN :lemmaNames", nativeQuery = true)
-    Iterable<LemmaEntity> getLemmasBySiteIdAndLemmaName(int site_id, String[] lemmaNames);
+    @Query(value = "SELECT l.* FROM Lemma l WHERE l.lemma = :lemma ORDER BY frequency ASC", nativeQuery = true)
+    List<Lemma> findByLemma(@Param("lemma") String lemma);
 
 }

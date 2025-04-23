@@ -1,4 +1,4 @@
-package src.main.searchengine.parser;
+package main.searchengine.parser;
 
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
@@ -6,7 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import searchengine.dto.statistics.StatisticsPage;
+import main.searchengine.dto.StatisticsPage;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,16 +1,16 @@
-package src.main.searchengine.parser;
+package main.searchengine.parser;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import searchengine.dto.statistics.StatisticsIndex;
-import searchengine.model.Lemma;
-import searchengine.model.Page;
-import searchengine.model.SitePage;
-import searchengine.morphology.Morphology;
-import searchengine.repository.LemmaRepository;
-import searchengine.repository.PageRepository;
-import searchengine.utils.CleanHtmlCode;
+import main.searchengine.dto.StatisticsIndex;
+import main.searchengine.model.Lemma;
+import main.searchengine.model.Page;
+import main.searchengine.model.SitePage;
+import main.searchengine.morphology.Morphology;
+import main.searchengine.repozitories.LemmaRepository;
+import main.searchengine.repozitories.PageRepository;
+import main.searchengine.utils.CleanHtmlCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +24,12 @@ public class Index implements IndexParser {
     private final LemmaRepository lemmaRepository;
     private final Morphology morphology;
     private List<StatisticsIndex> statisticsIndexList;
+
+    public Index(PageRepository pageRepository, LemmaRepository lemmaRepository, Morphology morphology) {
+        this.pageRepository = pageRepository;
+        this.lemmaRepository = lemmaRepository;
+        this.morphology = morphology;
+    }
 
     @Override
     public List<StatisticsIndex> getIndexList() {

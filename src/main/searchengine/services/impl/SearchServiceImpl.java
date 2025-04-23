@@ -1,21 +1,21 @@
-package src.main.searchengine.services.impl;
+package main.searchengine.services.impl;
 
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import searchengine.dto.statistics.StatisticsSearch;
-import searchengine.model.IndexSearch;
-import searchengine.model.Lemma;
-import searchengine.model.Page;
-import searchengine.model.SitePage;
-import searchengine.morphology.Morphology;
-import searchengine.repository.IndexSearchRepository;
-import searchengine.repository.LemmaRepository;
-import searchengine.repository.PageRepository;
-import searchengine.repository.SiteRepository;
-import searchengine.services.SearchService;
-import searchengine.utils.CleanHtmlCode;
+import main.searchengine.dto.StatisticsSearch;
+import main.searchengine.model.IndexSearch;
+import main.searchengine.model.Lemma;
+import main.searchengine.model.Page;
+import main.searchengine.model.SitePage;
+import main.searchengine.morphology.Morphology;
+import main.searchengine.repozitories.IndexSearchRepository;
+import main.searchengine.repozitories.LemmaRepository;
+import main.searchengine.repozitories.PageRepository;
+import main.searchengine.repozitories.SiteRepository;
+import main.searchengine.services.SearchService;
+import main.searchengine.utils.CleanHtmlCode;
 
 import java.util.*;
 import java.util.stream.Collectors;

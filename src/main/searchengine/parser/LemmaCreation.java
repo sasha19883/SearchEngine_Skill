@@ -1,15 +1,15 @@
-package src.main.searchengine.parser;
+package main.searchengine.parser;
 
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import searchengine.dto.statistics.StatisticsLemma;
-import searchengine.model.Page;
-import searchengine.model.SitePage;
-import searchengine.morphology.Morphology;
-import searchengine.repository.PageRepository;
-import searchengine.utils.CleanHtmlCode;
+import main.searchengine.dto.StatisticsLemma;
+import main.searchengine.model.Page;
+import main.searchengine.model.SitePage;
+import main.searchengine.morphology.Morphology;
+import main.searchengine.repozitories.PageRepository;
+import main.searchengine.utils.CleanHtmlCode;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -21,6 +21,11 @@ public class LemmaCreation implements LemmaParser {
     private final PageRepository pageRepository;
     private final Morphology morphology;
     private List<StatisticsLemma> statisticsLemmaList;
+
+    public LemmaCreation(PageRepository pageRepository, Morphology morphology) {
+        this.pageRepository = pageRepository;
+        this.morphology = morphology;
+    }
 
     public List<StatisticsLemma> getLemmaDtoList() {
         return statisticsLemmaList;

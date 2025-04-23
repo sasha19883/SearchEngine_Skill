@@ -1,20 +1,20 @@
-package src.main.searchengine.services.impl;
+package main.searchengine.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import searchengine.config.Site;
-import searchengine.config.SitesList;
-import searchengine.model.SitePage;
-import searchengine.model.Status;
-import searchengine.parsers.IndexParser;
-import searchengine.parsers.LemmaParser;
-import searchengine.parsers.SiteIndexed;
-import searchengine.repository.IndexSearchRepository;
-import searchengine.repository.LemmaRepository;
-import searchengine.repository.PageRepository;
-import searchengine.repository.SiteRepository;
-import searchengine.services.IndexingService;
+import main.searchengine.config.Site;
+import main.searchengine.config.SitesList;
+import main.searchengine.model.SitePage;
+import main.searchengine.model.Status;
+import main.searchengine.parser.IndexParser;
+import main.searchengine.parser.LemmaParser;
+import main.searchengine.parser.SiteIndexed;
+import main.searchengine.repozitories.IndexSearchRepository;
+import main.searchengine.repozitories.LemmaRepository;
+import main.searchengine.repozitories.PageRepository;
+import main.searchengine.repozitories.SiteRepository;
+import main.searchengine.services.IndexingService;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -33,6 +33,16 @@ public class IndexingServiceImpl implements IndexingService {
     private final LemmaParser lemmaParser;
     private final IndexParser indexParser;
     private final SitesList sitesList;
+
+    public IndexingServiceImpl(PageRepository pageRepository, SiteRepository siteRepository, LemmaRepository lemmaRepository, IndexSearchRepository indexSearchRepository, LemmaParser lemmaParser, IndexParser indexParser, SitesList sitesList) {
+        this.pageRepository = pageRepository;
+        this.siteRepository = siteRepository;
+        this.lemmaRepository = lemmaRepository;
+        this.indexSearchRepository = indexSearchRepository;
+        this.lemmaParser = lemmaParser;
+        this.indexParser = indexParser;
+        this.sitesList = sitesList;
+    }
 
     @Override
     public boolean urlIndexing(String url) {
