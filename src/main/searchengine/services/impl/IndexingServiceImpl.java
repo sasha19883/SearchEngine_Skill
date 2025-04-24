@@ -1,20 +1,20 @@
-package main.searchengine.services.impl;
+package src.main.searchengine.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import main.searchengine.config.Site;
-import main.searchengine.config.SitesList;
-import main.searchengine.model.SitePage;
-import main.searchengine.model.Status;
-import main.searchengine.parser.IndexParser;
-import main.searchengine.parser.LemmaParser;
-import main.searchengine.parser.SiteIndexed;
-import main.searchengine.repozitories.IndexSearchRepository;
-import main.searchengine.repozitories.LemmaRepository;
-import main.searchengine.repozitories.PageRepository;
-import main.searchengine.repozitories.SiteRepository;
-import main.searchengine.services.IndexingService;
+import src.main.searchengine.config.Site;
+import src.main.searchengine.config.SitesList;
+import src.main.searchengine.model.SitePage;
+import src.main.searchengine.model.Status;
+import src.main.searchengine.parser.IndexParser;
+import src.main.searchengine.parser.LemmaParser;
+import src.main.searchengine.parser.SiteIndexed;
+import src.main.searchengine.repozitories.IndexSearchRepository;
+import src.main.searchengine.repozitories.LemmaRepository;
+import src.main.searchengine.repozitories.PageRepository;
+import src.main.searchengine.repozitories.SiteRepository;
+import src.main.searchengine.services.IndexingService;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

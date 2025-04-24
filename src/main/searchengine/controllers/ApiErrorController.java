@@ -1,10 +1,10 @@
-package main.searchengine.controllers;
+package src.main.searchengine.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import main.searchengine.exceptions.ErrMessage;
+import src.main.searchengine.exceptions.ErrMessage;
 
 @RestControllerAdvice
 public class ApiErrorController {

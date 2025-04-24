@@ -1,6 +1,6 @@
-package main.searchengine.services;
+package src.main.searchengine.services;
 
-import main.searchengine.dto.StatisticsResponse;
+import src.main.searchengine.dto.StatisticsResponse;
 
 public interface StatisticsService {
     StatisticsResponse getStatistics();

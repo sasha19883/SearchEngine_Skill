@@ -1,17 +1,17 @@
-package main.searchengine.parser;
+package src.main.searchengine.parser;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import main.searchengine.config.Site;
-import main.searchengine.config.SitesList;
-import main.searchengine.dto.StatisticsIndex;
-import main.searchengine.dto.StatisticsLemma;
-import main.searchengine.dto.StatisticsPage;
-import main.searchengine.model.*;
-import main.searchengine.repozitories.IndexSearchRepository;
-import main.searchengine.repozitories.LemmaRepository;
-import main.searchengine.repozitories.PageRepository;
-import main.searchengine.repozitories.SiteRepository;
+import src.main.searchengine.config.Site;
+import src.main.searchengine.config.SitesList;
+import src.main.searchengine.dto.StatisticsIndex;
+import src.main.searchengine.dto.StatisticsLemma;
+import src.main.searchengine.dto.StatisticsPage;
+import src.main.searchengine.model.*;
+import src.main.searchengine.repozitories.IndexSearchRepository;
+import src.main.searchengine.repozitories.LemmaRepository;
+import src.main.searchengine.repozitories.PageRepository;
+import src.main.searchengine.repozitories.SiteRepository;
 
 
 import java.util.Date;

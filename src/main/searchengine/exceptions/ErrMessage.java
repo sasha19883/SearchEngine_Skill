@@ -1,4 +1,4 @@
-package main.searchengine.exceptions;
+package src.main.searchengine.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

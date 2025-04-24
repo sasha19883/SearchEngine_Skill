@@ -1,4 +1,4 @@
-package main.searchengine.controllers;
+package src.main.searchengine.controllers;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;

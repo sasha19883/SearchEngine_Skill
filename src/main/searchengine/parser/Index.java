@@ -1,16 +1,16 @@
-package main.searchengine.parser;
+package src.main.searchengine.parser;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import main.searchengine.dto.StatisticsIndex;
-import main.searchengine.model.Lemma;
-import main.searchengine.model.Page;
-import main.searchengine.model.SitePage;
-import main.searchengine.morphology.Morphology;
-import main.searchengine.repozitories.LemmaRepository;
-import main.searchengine.repozitories.PageRepository;
-import main.searchengine.utils.CleanHtmlCode;
+import src.main.searchengine.dto.StatisticsIndex;
+import src.main.searchengine.model.Lemma;
+import src.main.searchengine.model.Page;
+import src.main.searchengine.model.SitePage;
+import src.main.searchengine.morphology.Morphology;
+import src.main.searchengine.repozitories.LemmaRepository;
+import src.main.searchengine.repozitories.PageRepository;
+import src.main.searchengine.utils.CleanHtmlCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
-package main.searchengine.parser;
+package src.main.searchengine.parser;
 
-import main.searchengine.dto.StatisticsLemma;
-import main.searchengine.model.SitePage;
+import src.main.searchengine.dto.StatisticsLemma;
+import src.main.searchengine.model.SitePage;
 
 import java.util.List;
 

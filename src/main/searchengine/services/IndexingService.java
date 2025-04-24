@@ -1,4 +1,4 @@
-package main.searchengine.services;
+package src.main.searchengine.services;
 
 public interface IndexingService {
     boolean urlIndexing(String url);
