@@ -5,16 +5,21 @@ spring:
   datasource:
     username: root
     password: qwer1234
-    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true&useUnicode=yes&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-        jdbc:
-          batch_size: 100
     hibernate:
       ddl-auto: update
-    show-sql: true
+      generate-ddl: true
+    #  show-sql: true
+    open-in-view: true
+  # logs
+  logging:
+    level:
+      org.hibernate.SQL: info
 
 indexing-settings:
   sites:
@@ -24,4 +29,13 @@ indexing-settings:
       name: Библиотека им.Светлова
     - url: http://radiomv.ru/actions/
       name: RadioMV
-
+    - url: https://at-store.ru/
+      name: at-store
+    - url: https://et-cetera.ru/mobile/
+      name: et-cetera.ru
+    - url: https://www.skillbox.ru
+      name: Skillbox
+    - url: https://www.playback.ru
+      name: PlayBack.Ru
+    - url: https://dombulgakova.ru/
+      name: dombulgakova
